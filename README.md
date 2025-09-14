@@ -1,69 +1,56 @@
-# React + TypeScript + Vite
+## E6Data AI Database Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React + Vite frontend for the AI Database Assistant. It connects to a FastAPI backend to analyze database performance logs.
 
-Currently, two official plugins are available:
+### Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v18 or newer recommended)
+- npm or yarn
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Frontend Setup (React + Vite)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Go to the frontend directory:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+   ```sh
+   cd e6data_aidatabase_frontend
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install dependencies:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. Set the backend URL in a `.env` file:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```env
+   VITE_BACKEND_URL=http://127.0.0.1:8000
+   ```
+
+4. Start the frontend dev server:
+
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+---
+
+## Usage
+
+1. Open [http://localhost:3000](http://localhost:3000) in your browser.
+2. Upload your database logs in JSON format using the provided template.
+3. Chat with the assistant to get analysis and optimization suggestions.
+
+---
+
+## Troubleshooting
+
+- Make sure both backend and frontend servers are running.
+- Ensure your `.env` files are correctly set up.
+- If you see CORS errors, check that the backend allows requests from the frontend URL.

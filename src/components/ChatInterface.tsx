@@ -67,7 +67,7 @@ export default function ChatInterface() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Backend API URL
-  const API_URL = process.env.backend_url;
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://127.0.0.1:8000";
 
   const jsonTemplate = {
     logs: [
